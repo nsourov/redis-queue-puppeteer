@@ -1,0 +1,10 @@
+{
+  "name": "redis-queue-puppeteer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "bull": "^3.4.8",
+    "puppeteer": "^1.8.0"
+  }
+}
