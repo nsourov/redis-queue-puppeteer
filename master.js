@@ -1,15 +1,32 @@
 /**
  * Master will send jobs to worker.
  */
-const Bull = require("bull");
-const queue = new Bull("crawl title");
+const Queue = require("bull");
+const crawlQueue = new Queue("crawl title");
+
+crawlQueue.on("global:completed", function(jobID, result) {
+  console.log(`job ${jobID} completed`, result);
+});
 
 async function addJob(url) {
   // empty queue before adding jobs on queue
-  await queue.empty();
+  // await queue.empty();
   // passing the url to the worker. worker will take the url and pass it to the crawler function
-  return await myFirstQueue.add({
-    url
-  });
+  const job = await crawlQueue.add(
+    {
+      url
+    }
+  );
+  const result = await job.finished();
+  return result;
 }
-module.exports = addJob;
+
+const urls = [
+  "https://google.com",
+  "http://www.example.com/",
+  "https://optimalbits.github.io/bull/",
+  "https://github.com"
+];
+for (let url of urls) {
+  addJob(url);
+}
