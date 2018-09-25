@@ -15,8 +15,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run",
-      "pre-push": "yarn run"
+      "pre-commit": "yarn run lint",
+      "pre-push": "yarn run lint"
     }
   },
   "scripts": {
