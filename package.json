@@ -5,6 +5,23 @@
   "license": "MIT",
   "dependencies": {
     "bull": "^3.4.8",
+    "husky": "^1.0.0-rc.15",
     "puppeteer": "^1.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run lint-fix",
+      "pre-push": "npm test",
+      "...": "..."
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix"
   }
 }
