@@ -5,7 +5,7 @@ async function crawler(url) {
   let browser;
   try {
     // creating browser instance
-    browser = await puppeteer.launch({ headless: true });
+    browser = await puppeteer.launch({ headless: false });
     // creating newpage
     const page = await browser.newPage();
     // navigating to the url that passed by worker

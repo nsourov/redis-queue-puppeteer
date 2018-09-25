@@ -15,11 +15,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run lint",
+      "pre-commit": "yarn run lint-fix",
       "pre-push": "yarn run lint"
     }
   },
   "scripts": {
+    "start": "node index.js",
     "lint": "eslint .",
     "lint-fix": "eslint --fix . --ext .js"
   }
